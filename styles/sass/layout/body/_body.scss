@@ -1,0 +1,25 @@
+body {
+	// display: flex;
+	// justify-content: center;
+	max-width: 100%;
+}
+
+.wrapper {
+	background-color: white;
+	position: relative;
+	border-top: 5px solid $seconday-color;
+	border-bottom: 5px solid $seconday-color;
+	padding: 0 20px;
+	overflow: hidden;
+	@include montserratRegular;
+
+	p {
+		@include robotoRegular;
+	}
+
+	@include mediaQuery-desktop(768px) {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 156px;
+	}
+}

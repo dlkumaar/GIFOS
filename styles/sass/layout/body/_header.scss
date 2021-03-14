@@ -1,0 +1,167 @@
+.header {
+	.navbar {
+		height: 95px;
+		@include flexRowCenter;
+		justify-content: space-between;
+
+		// logo
+		.logo {
+			@include flexColumnCenter;
+		}
+
+		// mobile menu btn
+		.menu-btn {
+			@include flexRowCenter;
+			position: relative;
+			width: 15px;
+			height: 15px;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+
+			&__burger {
+				width: 15px;
+				height: 2px;
+				background: #572ee5;
+				transition: all 0.5s ease-in-out;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					width: 15px;
+					height: 2px;
+					background: #572ee5;
+					transition: all 0.5s ease-in-out;
+				}
+
+				&::before {
+					transform: translateY(-7px);
+				}
+
+				&::after {
+					transform: translateY(7px);
+				}
+			}
+		}
+
+		// mobile menu button animation
+		.menu-btn.open .menu-btn__burger {
+			transform: translateX(-50px);
+			background: transparent;
+		}
+
+		.menu-btn.open .menu-btn__burger::before {
+			transform: rotate(45deg) translate(35px, -35px);
+		}
+
+		.menu-btn.open .menu-btn__burger::after {
+			transform: rotate(-45deg) translate(35px, 35px);
+		}
+
+		// mobile menu items
+		.menu-items {
+			@include flexColumnCenter;
+			position: absolute;
+			background: rgba(87, 46, 229, 0.9);
+			height: calc(100vh - 100px);
+			// height: calc(100vh - 100px);
+			top: 95px;
+			left: 0;
+			width: 100%;
+			padding-top: 17px;
+			z-index: 100;
+			display: none;
+			animation: slide-right 500ms ease-in-out;
+
+			// menu list items
+			li {
+				@include textStyle(
+					$font-montserrat,
+					15px,
+					500,
+					1px,
+					60px,
+					center,
+					white
+				);
+
+				// list items bottm border
+				span {
+					display: block;
+					width: 41px;
+					height: 1px;
+					background: white;
+					opacity: 0.5;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		.menu-items.mobile {
+			display: block;
+		}
+
+		.create-gifos-button {
+			display: none;
+		}
+
+		// mobile menu animation slide from right
+		@-webkit-keyframes slide-right {
+			0% {
+				-webkit-transform: translateX(-100%);
+				transform: translateX(-100%);
+			}
+			100% {
+				-webkit-transform: translateX(1);
+				transform: translateX(1);
+			}
+		}
+	}
+}
+
+@include mediaQuery-desktop(768px) {
+	.header {
+		.navbar {
+			height: 90px;
+
+			// mobile menu btn
+			.menu-btn {
+				display: none;
+			}
+
+			// mobile menu items
+			.menu-items {
+				position: relative;
+				background: none;
+				height: inherit;
+				top: 0;
+				left: 0;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: flex-end;
+				animation: none;
+
+				// menu list items
+				li {
+					font-size: 13px;
+					color: #572ee5;
+					line-height: 16px;
+
+					&:not(:last-child) {
+						margin-right: 41px;
+					}
+
+					// list items bottm border
+					span {
+						display: none;
+					}
+				}
+			}
+
+			.create-gifos-button {
+				display: block;
+			}
+		}
+	}
+}

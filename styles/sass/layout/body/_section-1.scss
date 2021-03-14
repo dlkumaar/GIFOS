@@ -1,0 +1,47 @@
+.banner {
+	width: 100%;
+	@include flexColumnCenter;
+
+	&__title {
+		@include textStyle(
+			$font-montserrat,
+			25px,
+			600,
+			0,
+			33px,
+			center,
+			$seconday-color
+		);
+
+		margin: 7px 0 31px 0;
+		max-width: 286px;
+
+		&-span {
+			color: $decorated-title-span;
+			padding-left: 10px;
+		}
+	}
+
+	&__image {
+		max-width: 273px;
+		height: 130px;
+	}
+}
+
+@include mediaQuery-desktop(768px) {
+	.banner {
+		margin-top: 76px;
+
+		&__title {
+			font-size: 35px;
+			line-height: 50px;
+			padding: 0 160px;
+			max-width: 934px;
+		}
+
+		&__image {
+			max-width: 399px;
+			height: 190px;
+		}
+	}
+}

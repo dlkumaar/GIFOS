@@ -1,0 +1,149 @@
+.trending-gifs {
+	padding: 46px 0 82px;
+	background-color: $background-color;
+	margin: 0 -20px;
+
+	&__text-content {
+		h2 {
+			@include textStyle(
+				$font-montserrat,
+				20px,
+				500,
+				0px,
+				30px,
+				center,
+				$seconday-color
+			);
+		}
+
+		p {
+			margin: 7px 0 32px;
+			@include textStyle(
+				$font-roboto,
+				16px,
+				400,
+				0px,
+				23px,
+				center,
+				$primary-color
+			);
+		}
+	}
+
+	&__slider-box {
+		overflow: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.slider {
+			max-width: 375px;
+			@include flexRowCenter;
+			justify-content: flex-start;
+			padding-left: 20px;
+
+			figure {
+				position: relative;
+
+				&:not(:last-child) {
+					margin-right: 22px;
+				}
+
+				.trending-gif-items {
+					width: 243px;
+					height: 187px;
+					object-fit: cover;
+				}
+
+				.trending-gifs-buttons {
+					position: absolute;
+					top: 0;
+					right: 0;
+					padding: 10px;
+
+					button {
+						padding: 0;
+						border: none;
+						outline: none;
+						color: $primary-color;
+						width: 30px;
+						height: 30px;
+						background: transparent;
+						background-size: cover;
+					}
+
+					.icon-fav {
+						background-image: url('../../../../assets/icon-fav.svg');
+
+						&:hover {
+							background-image: url('../../../../assets/icon-fav-hover.svg');
+						}
+					}
+
+					.icon-download {
+						background-image: url('../../../../assets/icon-download.svg');
+
+						&:hover {
+							background-image: url('../../../../assets/icon-download-hover.svg');
+						}
+					}
+
+					.icon-max {
+						background-image: url('../../../../assets/icon-max-normal.svg');
+
+						&:hover {
+							background-image: url('../../../../assets/icon-max-hover.svg');
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mediaQuery-desktop(768px) {
+	.trending-gifs {
+		padding: 67px 0 182px;
+		margin: 95px -156px;
+
+		&__text-content {
+			h2 {
+				font-size: 30px;
+				line-height: 30px;
+			}
+
+			p {
+				font-size: 18px;
+				line-height: 21px;
+				margin: 14px 0 53px 0;
+			}
+		}
+
+		&__slider-box {
+			overflow: wrap;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.slider {
+				max-width: 375px;
+				@include flexRowCenter;
+				justify-content: flex-start;
+				padding-left: 20px;
+
+				figure {
+					&:not(:last-child) {
+						margin-right: 22px;
+					}
+
+					.trending-gif-items {
+						width: 357px;
+						height: 275px;
+					}
+				}
+			}
+		}
+	}
+}

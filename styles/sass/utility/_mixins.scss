@@ -1,0 +1,72 @@
+@mixin robotoRegular {
+	font-family: $font-roboto;
+	font-size: 16px;
+	color: #000;
+}
+
+@mixin montserratRegular {
+	font-family: $font-montserrat;
+}
+
+// flex-row center
+@mixin flexRowCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// flex-column center
+@mixin flexColumnCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin textStyle(
+	$font-family,
+	$font-size,
+	$font-weight,
+	$letter-spacing,
+	$line-height,
+	$text-align: left,
+	$color
+) {
+	font-family: $font-family;
+	font-size: $font-size;
+	font-weight: $font-weight;
+	letter-spacing: $letter-spacing;
+	line-height: $line-height;
+	text-align: $text-align;
+	color: $color;
+}
+
+@mixin loadMoreButton {
+	background-color: transparent;
+	padding: 12px 32px 10px;
+	height: 50px;
+	border: 1px solid $seconday-color;
+	border-radius: 25px;
+	@include textStyle(
+		$font-montserrat,
+		13px,
+		500,
+		0px,
+		25px,
+		center,
+		$seconday-color
+	);
+	text-transform: uppercase;
+
+	&:hover {
+		background-color: $seconday-color;
+		color: white;
+		transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+	}
+}
+
+@mixin mediaQuery-desktop($min-width) {
+	@media only screen and (min-width: $min-width) {
+		@content;
+	}
+}
