@@ -1,6 +1,7 @@
 // /* UTILITY */
 @import '../sass/utility/mixins';
 @import '../sass/utility/variables';
+@import '../sass/utility/helper';
 
 // /* BASE */
 @import '../sass/base/reset';
@@ -14,4 +15,6 @@
 @import '../sass/layout/body/section-3';
 @import '../sass/layout/body/section-4';
 @import '../sass/layout/body/section-5';
+@import '../sass/layout/body/section-6';
 @import '../sass/layout/footer';
+@import '../sass/layout/body/darkMode';

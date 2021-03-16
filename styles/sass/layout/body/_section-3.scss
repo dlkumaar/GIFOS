@@ -1,148 +1,66 @@
-.trending-gifs {
-	padding: 46px 0 82px;
-	background-color: $background-color;
-	margin: 0 -20px;
+.favorite-gifs-box {
+	display: none;
 
 	&__text-content {
-		h2 {
-			@include textStyle(
-				$font-montserrat,
-				20px,
-				500,
-				0px,
-				30px,
-				center,
-				$seconday-color
-			);
-		}
-
-		p {
-			margin: 7px 0 32px;
-			@include textStyle(
-				$font-roboto,
-				16px,
-				400,
-				0px,
-				23px,
-				center,
-				$primary-color
-			);
-		}
-	}
-
-	&__slider-box {
-		overflow: scroll;
-
-		&::-webkit-scrollbar {
-			display: none;
-		}
-
-		.slider {
-			max-width: 375px;
-			@include flexRowCenter;
-			justify-content: flex-start;
-			padding-left: 20px;
-
-			figure {
-				position: relative;
-
-				&:not(:last-child) {
-					margin-right: 22px;
-				}
-
-				.trending-gif-items {
-					width: 243px;
-					height: 187px;
-					object-fit: cover;
-				}
-
-				.trending-gifs-buttons {
-					position: absolute;
-					top: 0;
-					right: 0;
-					padding: 10px;
-
-					button {
-						padding: 0;
-						border: none;
-						outline: none;
-						color: $primary-color;
-						width: 30px;
-						height: 30px;
-						background: transparent;
-						background-size: cover;
-					}
-
-					.icon-fav {
-						background-image: url('../../../../assets/icon-fav.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-fav-hover.svg');
-						}
-					}
-
-					.icon-download {
-						background-image: url('../../../../assets/icon-download.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-download-hover.svg');
-						}
-					}
-
-					.icon-max {
-						background-image: url('../../../../assets/icon-max-normal.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-max-hover.svg');
-						}
-					}
-				}
-			}
-		}
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
 
-@include mediaQuery-desktop(768px) {
-	.trending-gifs {
-		padding: 67px 0 182px;
-		margin: 95px -156px;
+.favorite-gifs-box.show {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 11px;
+	margin-bottom: 137px;
 
-		&__text-content {
-			h2 {
-				font-size: 30px;
-				line-height: 30px;
-			}
+	.favorite-gifs-box__title {
+		font-size: 25px;
+		text-align: center;
+		line-height: 38px;
+	}
 
-			p {
-				font-size: 18px;
-				line-height: 21px;
-				margin: 14px 0 53px 0;
-			}
+	.favorite-gifs-box__no-gifs {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		margin: 109px 0 24px;
+
+		&.hide {
+			display: none;
 		}
 
-		&__slider-box {
-			overflow: wrap;
+		p {
+			max-width: 431px;
+			margin-top: 24px;
+			color: #50e3c2;
+			font-size: 22px;
+			line-height: 33px;
+			text-align: center;
+		}
+	}
 
-			&::-webkit-scrollbar {
-				display: none;
-			}
+	.favorite-gifs {
+		width: 100%;
+		margin-top: 36px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 21px;
+		justify-items: center;
 
-			.slider {
-				max-width: 375px;
-				@include flexRowCenter;
-				justify-content: flex-start;
-				padding-left: 20px;
+		@include mediaQuery-desktop(768px) {
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 29px;
+		}
 
-				figure {
-					&:not(:last-child) {
-						margin-right: 22px;
-					}
+		img {
+			width: 156px;
+			height: 120px;
 
-					.trending-gif-items {
-						width: 357px;
-						height: 275px;
-					}
-				}
+			@include mediaQuery-desktop(768px) {
+				width: 260px;
+				height: 200px;
 			}
 		}
 	}

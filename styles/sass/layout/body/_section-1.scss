@@ -2,6 +2,10 @@
 	width: 100%;
 	@include flexColumnCenter;
 
+	&.hide {
+		display: none;
+	}
+
 	&__title {
 		@include textStyle(
 			$font-montserrat,

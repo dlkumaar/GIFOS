@@ -4,10 +4,14 @@
 	overflow: hidden;
 	// margin-bottom: 45px;
 
+	&.hide {
+		display: none;
+	}
+
 	&__wrapper {
 		.gif-search__form {
 			padding: 15px 24px 13px 24px;
-			width: 334px;
+			width: 330px;
 			overflow: hidden;
 			@include flexRowCenter;
 
@@ -25,7 +29,7 @@
 				border: none;
 				cursor: pointer;
 				outline: none;
-				background: transparent;
+				background: none;
 			}
 
 			.submit-btn.hide {
@@ -177,11 +181,41 @@
 					display: none;
 				}
 			}
+
+			&.search-error {
+				grid-template-columns: repeat(1, 1fr);
+				justify-items: center;
+
+				.search-error-card {
+					@include flexColumnCenter;
+				}
+
+				.search-error-message {
+					@include textStyle(
+						$font-montserrat,
+						22px,
+						600,
+						0px,
+						25px,
+						center,
+						$decorated-title-span
+					);
+					margin-top: 29px;
+				}
+			}
 		}
 
 		.load-more-btn {
 			@include loadMoreButton;
 			margin: 78px 0;
+
+			&.show {
+				display: block;
+			}
+
+			&.hide {
+				display: none;
+			}
 		}
 	}
 }

@@ -6,8 +6,8 @@ import { inputField } from './script.js';
 // dom elements
 export const suggestionBox = document.querySelector('.search-suggestions');
 const submitBtn = document.getElementById('submit-btn');
-const submitBtnIcon = document.getElementById('submit-btn-icon');
-const crossIcon = document.getElementById('cross-icon');
+
+export const crossIcon = document.getElementById('cross-icon');
 
 /**
  * Giphy base url for search suggestions

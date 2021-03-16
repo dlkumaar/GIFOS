@@ -11,13 +11,14 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="./styles/css/main.css" type="text/css" />
+		<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 		<script type="module" src="./scripts/script.js"></script>
 
 		<title>Gifos: Check out your favorite Gifs.</title>
 	</head>
 	<body>
 		<!-- wrapper contains entire body -->
-		<div class="wrapper">
+		<div class="wrapper" id="wrapper">
 			<header class="header" id="header">
 				<nav class="navbar" id="navbar">
 					<!-- Mobile logo  -->
@@ -70,7 +71,7 @@
 												</mask>
 												<g id="Clip-3"></g>
 												<text
-													id="GIFOS"
+													id="GIFOS_1"
 													mask="url(#mask-2)"
 													font-family="Roboto-Black, Roboto"
 													font-size="16"
@@ -92,129 +93,134 @@
 					</div>
 
 					<ul class="menu-items">
-						<li>Modo Nocturno<span></span></li>
-						<li>Favoritos<span></span></li>
-						<li>Mis GIFOS<span></span></li>
+						<li id="dark-mode">Modo Nocturno<span></span></li>
+						<li id="favoritos">Favoritos<span></span></li>
+						<li id="my-gifos">Mis GIFOS<span></span></li>
 						<li class="create-gifos-button" id="create-gifos-button">
-							<img src="./assets/button-crear-gifo.svg" alt="" />
+							<img src="./assets/button-crear-gifo.svg" alt="create-gif-btn" />
 						</li>
 					</ul>
 				</nav>
 			</header>
 
 			<main>
-				<!-- section 1: banner -->
-				<section class="section-1 banner">
-					<h1 class="banner__title">
-						Inspírate, busca, guarda, y crea los mejores<span
-							class="banner__title-span"
-							>GIFOS</span
-						>
-					</h1>
+				<div id="page-1">
+					<!-- section 1: banner -->
+					<section class="section-1 banner">
+						<h1 class="banner__title">
+							Inspírate, busca, guarda, y crea los mejores<span
+								class="banner__title-span"
+								>GIFOS</span
+							>
+						</h1>
 
-					<img
-						class="banner__image"
-						src="/assets/ilustra_header.svg"
-						alt="gifos-banner"
-					/>
-				</section>
+						<img
+							class="banner__image"
+							src="/assets/ilustra_header.svg"
+							alt="gifos-banner"
+						/>
+					</section>
 
-				<!-- section 2: gif search form -->
-				<section class="section-2 gif-search">
-					<!-- search form -->
-					<form id="gif-search__form" class="gif-search__wrapper">
-						<div class="gif-search__form">
-							<label for="gif-search-box"></label>
-							<input
-								class="input"
-								type="text"
-								name="gif-search-box"
-								id="gif-search-box"
-								placeholder="Busca GIFOS y más"
-							/>
-
-							<!-- search button -->
-							<button type="submit" id="submit-btn" class="submit-btn">
-								<img
-									id="submit-btn-icon"
-									src="./assets/icon-search.svg"
-									alt="search-btn"
+					<!-- section 2: gif search form -->
+					<section class="section-2 gif-search">
+						<!-- search form -->
+						<form id="gif-search__form" class="gif-search__wrapper">
+							<div class="gif-search__form">
+								<label for="gif-search-box"></label>
+								<input
+									class="input"
+									type="text"
+									name="gif-search-box"
+									id="gif-search-box"
+									placeholder="Busca GIFOS y más"
 								/>
-							</button>
 
-							<div class="cross-icon" id="cross-icon">
-								<img src="./assets/close.svg" alt="" />
+								<!-- search button -->
+								<button type="submit" id="submit-btn" class="submit-btn">
+									<img
+										id="submit-btn-icon"
+										src="./assets/icon-search.svg"
+										alt="search-btn"
+									/>
+								</button>
+
+								<div class="cross-icon" id="cross-icon">
+									<img src="./assets/close.svg" alt="" />
+								</div>
+							</div>
+							<!-- gifs search suggestions-->
+
+							<ul class="search-suggestions"></ul>
+						</form>
+
+						<!-- trendig gif links -->
+						<div class="gif-search__trending-categories">
+							<h2>Trending:</h2>
+
+							<ul class="trending-gifs__list">
+								<li><a href="#">Reactions,</a></li>
+								<li><a href="#">Entertainment,</a></li>
+								<li><a href="#">Sports,</a></li>
+								<li><a href="#">Stickers,</a></li>
+								<li><a href="#">Artists</a></li>
+							</ul>
+						</div>
+
+						<!-- searched gifs will show up here -->
+						<div class="gif-search__out">
+							<h2 class="gifs-title"></h2>
+							<div class="gifs"></div>
+							<button id="load-more-gifs" class="load-more-btn">ver más</button>
+						</div>
+					</section>
+
+					<!-- section 3: favorite gifs -->
+					<section class="section-3 favorite-gifs-box">
+						<div class="favorite-gifs-box__text-content">
+							<div class="heart-icon">
+								<img src="./assets/icon-favoritos.svg" alt="" />
+							</div>
+
+							<h2 class="favorite-gifs-box__title">Favorite Gifs</h2>
+
+							<div class="favorite-gifs-box__no-gifs">
+								<img src="./assets/icon-fav-sin-contenido.svg" alt="" />
+
+								<p>
+									"¡Guarda tu primer GIFO en Favoritos para que se muestre
+									aquí!"
+								</p>
 							</div>
 						</div>
-						<!-- gifs search suggestions-->
+						<div class="favorite-gifs"></div>
+					</section>
 
-						<ul class="search-suggestions"></ul>
-					</form>
+					<!-- TODO: section 5: my gifs -->
+					<section class="section-4" style="display: none"></section>
 
-					<!-- trendig gif links -->
-					<div class="gif-search__trending-categories">
-						<h2>Trending:</h2>
-
-						<ul class="trending-gifs__list">
-							<li><a href="#">Reactions,</a></li>
-							<li><a href="#">Entertainment,</a></li>
-							<li><a href="#">Sports,</a></li>
-							<li><a href="#">Stickers,</a></li>
-							<li><a href="#">Artists</a></li>
-						</ul>
-					</div>
-
-					<!-- searched gifs will show up here -->
-					<div class="gif-search__out">
-						<h2 class="gifs-title"></h2>
-						<div class="gifs"></div>
-						<button id="load-more-gifs" class="load-more-btn">ver más</button>
-					</div>
-				</section>
-
-				<!-- section 3: trending gifs -->
-				<section class="section-3 trending-gifs">
-					<div class="trending-gifs__text-content">
-						<h2>Trending GIFOS</h2>
-						<p>
-							Mira los últimos <br />
-							GIFOS de nuestra comunidad.
-						</p>
-					</div>
-					<div class="trending-gifs__slider-box">
-						<div class="slider">
-							<!-- slider items -->
-						</div>
-					</div>
-				</section>
-
-				<!-- section 4: favorite gifs -->
-				<section class="favorite-gifs-box show">
-					<div class="favorite-gifs-box__text-content">
-						<div class="heart-icon">
-							<img src="./assets/icon-favoritos.svg" alt="" />
-						</div>
-
-						<h2 class="favorite-gifs-box__title">Favorite Gifs</h2>
-
-						<div class="favorite-gifs-box__no-gifs">
-							<img src="./assets/icon-fav-sin-contenido.svg" alt="" />
-
+					<!-- section 6: trending gifs -->
+					<section class="section-5 trending-gifs">
+						<div class="trending-gifs__text-content">
+							<h2>Trending GIFOS</h2>
 							<p>
-								"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"
+								Mira los últimos <br />
+								GIFOS de nuestra comunidad.
 							</p>
 						</div>
-					</div>
-					<div class="favorite-gifs"></div>
-				</section>
-
-				<!-- section 5: capture gifs -->
-				<section class="get-video hide">
+						<div class="trending-gifs__slider-box">
+							<div class="slider">
+								<!-- slider items -->
+							</div>
+						</div>
+					</section>
+				</div>
+				<!-- section 4: capture gifs -->
+				<section class="section-6 get-video hide">
 					<!-- absolute elements -->
-					<img src="./assets/camara.svg" alt="" class="camera" />
+					<img src="./assets/camara.svg" alt="camera" class="camera" />
 					<img
 						src="./assets/element-luz-camara.svg"
-						alt=""
+						alt="camera-light"
 						class="camera-light"
 					/>
 					<img src="./assets/pelicula.svg" class="camera-roll" alt="" />
@@ -248,10 +254,10 @@
 								</p>
 							</div>
 							<div class="step3 video-player-frame" id="step3">
-								<video class="video-player" src="" autoplay></video>
+								<video class="video-player" autoplay src=""></video>
 							</div>
 							<div class="step4 show-recorded-gif" id="step4">
-								<video src="" class="my-recorded-gif" autoplay loop></video>
+								<video src="" autoplay class="my-recorded-gif"></video>
 							</div>
 						</div>
 					</div>
@@ -271,11 +277,9 @@
 						<button class="step2-btn">Ir al Paso 2</button>
 						<button class="step3-btn">Grabar</button>
 						<button class="step4-btn">Finalizar</button>
+						<button class="step5-btn">Subir</button>
 					</div>
 				</section>
-
-				<!-- TODO: section 6: my gifs -->
-				<section style="display: none"></section>
 			</main>
 
 			<!-- footer -->

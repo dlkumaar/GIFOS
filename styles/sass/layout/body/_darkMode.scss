@@ -1,0 +1,151 @@
+.wrapper.dark {
+	// main body
+	background-color: $background-color-dark;
+
+	// header
+	.header {
+		.menu-items {
+			background: #000;
+
+			@include mediaQuery-desktop(768px) {
+				background: none;
+			}
+
+			li {
+				color: $primary-color-dark;
+			}
+		}
+
+		.menu-btn {
+			&__burger {
+				background: $primary-color-dark;
+
+				&::before,
+				&::after {
+					width: 15px;
+
+					background: $primary-color-dark;
+				}
+			}
+		}
+	}
+	// section 1
+	.banner {
+		&__title {
+			color: $primary-color-dark;
+		}
+	}
+
+	// section 2
+
+	.gif-search {
+		border-color: $primary-color-dark;
+		h2,
+		a,
+		p,
+		input {
+			background: transparent;
+			color: $primary-color-dark;
+		}
+
+		&__wrapper {
+			border-color: $primary-color-dark;
+		}
+
+		li {
+			color: $primary-color-dark;
+
+			&::before {
+				background-image: url('../../../../assets/icon-search-modo-noct.svg');
+			}
+
+			&:hover {
+				&::before {
+					background-image: url('../../../../assets/icon-search.svg');
+				}
+			}
+		}
+
+		#submit-btn {
+			background: transparent;
+		}
+
+		button {
+			background-color: $primary-color-dark;
+			border: none;
+			color: $seconday-color;
+		}
+	}
+
+	// section 3
+	.favorite-gifs-box {
+		h2 {
+			color: $primary-color-dark;
+		}
+	}
+
+	// section 6
+	.trending-gifs {
+		background-color: $trending-gifos-background-dark;
+		h2,
+		p {
+			color: $primary-color-dark;
+		}
+	}
+
+	// section 6
+
+	.get-video__inner-videobox {
+		border-color: $primary-color-dark;
+	}
+
+	.corner-box.box-1 {
+		left: 19px;
+		top: 19px;
+	}
+
+	.corner-box.box-2 {
+		right: 19px;
+		top: 19px;
+	}
+
+	.corner-box.box-3 {
+		left: 19px;
+		bottom: 19px;
+	}
+
+	.corner-box.box-4 {
+		right: 19px;
+		bottom: 19px;
+	}
+
+	.get-video__steps-box .steps {
+		color: $primary-color-dark;
+		border-color: $primary-color-dark;
+	}
+
+	.get-video__steps-box .record-timer {
+		color: $primary-color-dark;
+	}
+
+	.get-video .step-buttons button {
+		color: $primary-color-dark;
+		border-color: $primary-color-dark;
+
+		&:hover {
+			border-color: $seconday-color;
+		}
+	}
+
+	.get-video__steps-box .steps.active {
+		border-color: $seconday-color;
+	}
+
+	// footer
+	footer {
+		h3,
+		div {
+			color: $primary-color-dark;
+		}
+	}
+}
