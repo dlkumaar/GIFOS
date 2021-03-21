@@ -53,11 +53,11 @@ export const getTrendingGifs = async () => {
  * creates 3 absolute positioned
  * buttons for gif cards
  */
-let trendingGifButtons = `
-<button class='icon icon-fav'></button>
-<button class='icon icon-download'></button>
-<button class='icon icon-max'></button>
-  `;
+// export let trendingGifButtons = `
+// <button class='icon icon-fav'></button>
+// <button class='icon icon-download'></button>
+// <button class='icon icon-max'></button>
+//   `;
 
 /**
  * @param {array} array - takes an array objects
@@ -74,12 +74,18 @@ export function createGifCards(array, ele) {
 		buttonsBox.classList.add('trending-gifs-buttons');
 		img.classList.add('trending-gif-items');
 
-		// dom changes
-		buttonsBox.innerHTML = trendingGifButtons;
 		fig.appendChild(buttonsBox);
 
 		img.src = gifObject.images.downsized.url;
 		img.alt = gifObject.title;
+		fig.setAttribute('data-favorites', img.src);
+
+		// dom changes
+		buttonsBox.innerHTML = `
+			<button class='icon icon-fav'></button>
+			<button class='icon icon-download' onclick="location.href='${img.src}'"></button>
+			<button class='icon icon-max'></button>
+				`;
 
 		fig.appendChild(img);
 

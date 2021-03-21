@@ -42,62 +42,6 @@
 			@include flexRowCenter;
 			justify-content: flex-start;
 			padding-left: 20px;
-
-			figure {
-				position: relative;
-
-				&:not(:last-child) {
-					margin-right: 22px;
-				}
-
-				.trending-gif-items {
-					width: 243px;
-					height: 187px;
-					object-fit: cover;
-				}
-
-				.trending-gifs-buttons {
-					position: absolute;
-					top: 0;
-					right: 0;
-					padding: 10px;
-
-					button {
-						padding: 0;
-						border: none;
-						outline: none;
-						color: $primary-color;
-						width: 30px;
-						height: 30px;
-						background: transparent;
-						background-size: cover;
-					}
-
-					.icon-fav {
-						background-image: url('../../../../assets/icon-fav.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-fav-hover.svg');
-						}
-					}
-
-					.icon-download {
-						background-image: url('../../../../assets/icon-download.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-download-hover.svg');
-						}
-					}
-
-					.icon-max {
-						background-image: url('../../../../assets/icon-max-normal.svg');
-
-						&:hover {
-							background-image: url('../../../../assets/icon-max-hover.svg');
-						}
-					}
-				}
-			}
 		}
 	}
 }

@@ -175,6 +175,7 @@
 				.trending-gif-items {
 					width: 156px;
 					height: 120px;
+					object-fit: cover;
 				}
 				// TODO: change later
 				.trending-gifs-buttons {
@@ -270,9 +271,9 @@
 						width: 260px;
 						height: 200px;
 					}
-					// TODO: change later
+
 					.trending-gifs-buttons {
-						display: none;
+						display: block;
 					}
 				}
 			}

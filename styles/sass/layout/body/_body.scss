@@ -5,11 +5,13 @@ body {
 }
 
 .wrapper {
+	width: 100%;
 	background-color: white;
 	position: relative;
 	border-top: 5px solid $seconday-color;
 	border-bottom: 5px solid $seconday-color;
 	padding: 0 20px;
+	margin: 0 auto;
 	overflow: hidden;
 	@include montserratRegular;
 
@@ -18,8 +20,9 @@ body {
 	}
 
 	@include mediaQuery-desktop(768px) {
-		max-width: 1440px;
-		margin: 0 auto;
-		padding: 0 156px;
+		width: 80%;
+		// margin: 0 auto;
+		margin: 0 10%;
+		padding: 0 5%;
 	}
 }

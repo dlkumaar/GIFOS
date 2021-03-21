@@ -14,6 +14,7 @@ export function darkMode() {
 
 		// toggle dark class
 		containerWrapper.classList.toggle('dark');
+		document.querySelector('body').classList.toggle('dark');
 
 		//
 		if (containerWrapper.classList.contains('dark')) {

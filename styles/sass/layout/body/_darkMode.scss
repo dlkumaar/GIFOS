@@ -1,6 +1,11 @@
+body.dark {
+	background-color: $background-color-dark;
+}
 .wrapper.dark {
 	// main body
 	background-color: $background-color-dark;
+	border-top-color: #000;
+	border-bottom-color: #000;
 
 	// header
 	.header {

@@ -7,6 +7,75 @@
   transform: rotate(45deg);
 }
 
+figure {
+  position: relative;
+}
+figure::after {
+  content: "\a";
+  position: absolute;
+  width: 100%;
+  height: 99%;
+  top: 0;
+  left: 0;
+  background: #572ee5;
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  z-index: 1;
+}
+figure:hover::after {
+  opacity: 0.7;
+}
+figure:not(:last-child) {
+  margin-right: 22px;
+}
+figure .trending-gif-items {
+  width: 243px;
+  height: 187px;
+  object-fit: cover;
+}
+figure .trending-gifs-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 2;
+  display: none;
+}
+figure .trending-gifs-buttons button {
+  padding: 0;
+  border: none;
+  outline: none;
+  color: #000;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  background-size: cover;
+}
+figure .trending-gifs-buttons .icon-fav {
+  background-image: url("../../../../assets/icon-fav.svg");
+}
+figure .trending-gifs-buttons .icon-fav:hover {
+  background-image: url("../../../../assets/icon-fav-hover.svg");
+}
+figure .trending-gifs-buttons .icon-download {
+  background-image: url("../../../../assets/icon-download.svg");
+}
+figure .trending-gifs-buttons .icon-download:hover {
+  background-image: url("../../../../assets/icon-download-hover.svg");
+}
+figure .trending-gifs-buttons .icon-max {
+  background-image: url("../../../../assets/icon-max-normal.svg");
+}
+figure .trending-gifs-buttons .icon-max:hover {
+  background-image: url("../../../../assets/icon-max-hover.svg");
+}
+@media only screen and (min-width: 768px) {
+  figure .trending-gifs-buttons {
+    display: block;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,11 +97,13 @@ body {
 }
 
 .wrapper {
+  width: 100%;
   background-color: white;
   position: relative;
   border-top: 5px solid #572ee5;
   border-bottom: 5px solid #572ee5;
   padding: 0 20px;
+  margin: 0 auto;
   overflow: hidden;
   font-family: "Montserrat", sans-serif;
 }
@@ -43,9 +114,9 @@ body {
 }
 @media only screen and (min-width: 768px) {
   .wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 156px;
+    width: 80%;
+    margin: 0 10%;
+    padding: 0 5%;
   }
 }
 
@@ -401,6 +472,7 @@ body {
 .gif-search__out.display-gifs .gifs figure .trending-gif-items {
   width: 156px;
   height: 120px;
+  object-fit: cover;
 }
 .gif-search__out.display-gifs .gifs figure .trending-gifs-buttons {
   display: none;
@@ -491,7 +563,7 @@ body {
     height: 200px;
   }
   .gif-search__out.display-gifs .gifs figure .trending-gifs-buttons {
-    display: none;
+    display: block;
   }
   .gif-search__out.display-gifs .load-more-btn {
     margin: 78px 0 0;
@@ -801,51 +873,6 @@ body {
   justify-content: flex-start;
   padding-left: 20px;
 }
-.trending-gifs__slider-box .slider figure {
-  position: relative;
-}
-.trending-gifs__slider-box .slider figure:not(:last-child) {
-  margin-right: 22px;
-}
-.trending-gifs__slider-box .slider figure .trending-gif-items {
-  width: 243px;
-  height: 187px;
-  object-fit: cover;
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons button {
-  padding: 0;
-  border: none;
-  outline: none;
-  color: #000;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  background-size: cover;
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-fav {
-  background-image: url("../../../../assets/icon-fav.svg");
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-fav:hover {
-  background-image: url("../../../../assets/icon-fav-hover.svg");
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-download {
-  background-image: url("../../../../assets/icon-download.svg");
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-download:hover {
-  background-image: url("../../../../assets/icon-download-hover.svg");
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-max {
-  background-image: url("../../../../assets/icon-max-normal.svg");
-}
-.trending-gifs__slider-box .slider figure .trending-gifs-buttons .icon-max:hover {
-  background-image: url("../../../../assets/icon-max-hover.svg");
-}
 
 @media only screen and (min-width: 768px) {
   .trending-gifs {
@@ -883,6 +910,14 @@ body {
     height: 275px;
   }
 }
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: blanchedalmond;
+  top: 0;
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -944,8 +979,14 @@ footer .copyright {
     line-height: 15px;
   }
 }
+body.dark {
+  background-color: #37383c;
+}
+
 .wrapper.dark {
   background-color: #37383c;
+  border-top-color: #000;
+  border-bottom-color: #000;
 }
 .wrapper.dark .header .menu-items {
   background: #000;

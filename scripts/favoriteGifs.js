@@ -15,9 +15,10 @@ const favGifs = [];
 // sets up local store for favorite gifs
 export const setLocalStoreForFavoriteGifs = () => {
 	gifs.addEventListener('click', (e) => {
-		const favGif = e.target.src;
+		const favGif = e.target.dataset.favorites;
+		console.log(favGif);
 
-		if (e.target.classList.contains('gifs')) return;
+		if (favGifs.includes(favGif)) return;
 
 		favGifs.push(favGif);
 		localStorage.setItem('favGifs', favGifs);
